@@ -15,17 +15,31 @@ function dobbelsteen() {
   return $worp;
 }
 
-for ($n=0; $n<20; $n++) {
+function hoogte_bereken($f){
+  $hoogst = max($f);
+    for ($o=1; $o<=6; $o++) {
+      $h[$o]=200*$f[$o]/$hoogst;
+}
+  return $h;
+}
+
+for ($n=0; $n<100; $n++) {
   $frequentie[dobbelsteen()]++;  
 }
-function hoogte_bereken(){
 
+
+
+$hoogte = hoogte_bereken($frequentie);
+
+echo "<br>";
+for($o=1; $o<=6;$o++){
+  echo round($hoogte[$o]).'<br>';
 }
+echo "<br>";
 
 echo '<h2>Staafdiagram frequentie</h2>';
 for ($o=1; $o<=6; $o++) {
-  $hoogte=$frequentie[$o]*50;
-  echo '<img src="images/FF4D00-0.8.png" style="width: 100px; height: '.$hoogte.'px; margin-left: 5px;">';  
+  echo '<img src="images/FF4D00-0.8.png" style="width: 100px; height: '.$hoogte[$o].'px; margin-left: 5px;">';  
 }
 
 /****************************

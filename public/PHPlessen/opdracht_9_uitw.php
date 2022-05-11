@@ -23,7 +23,7 @@ function bereken_hoogte ($f) {
   return $h;
 }
 
-for ($n=0; $n<50000; $n++) {
+for ($n=0; $n<100; $n++) {
   $frequentie[dobbelsteen()]++;
 }
 

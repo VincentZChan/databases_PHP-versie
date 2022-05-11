@@ -22,13 +22,14 @@ else {
 
 echo "<h2>Eenvoudige query</h2>";
 // Voer een query uit
-$sql = "SELECT * FROM artiest,track WHERE artiest.artiest_id=track.artiest_id AND naam='Andre Hazes' order by uit ASC;";
+$sql = "SELECT * FROM artiest,track,notering WHERE artiest.artiest_id=track.artiest_id AND naam='Nirvana' AND  notering.editie = 2014 AND notering.track_id= track.track_id
+order by uit ASC;";
 $records = mysqli_query($DBverbinding, $sql);
       
 if (mysqli_num_rows($records) > 0) {
   // Voor elke rij uit de resultaattabel wordt een array aangemaakt
   while($record = mysqli_fetch_assoc($records)) {
-    echo $record["titel"]." uit ".$record["uit"].".<br>";
+    echo "<b>".$record["titel"]."</b> stond op de ".$record["positie"]."ste plek.<br>";
   }
 }
 else {

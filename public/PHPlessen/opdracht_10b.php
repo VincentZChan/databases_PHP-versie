@@ -6,14 +6,15 @@ TYP HIERONDER JOUW PHPCODE
 ****************************/
 
 require('database.php');
-$database = "top_2000_v2";
+$straat = 'Aluminiumstraat';
+$database = "postcode";
 $DBverbinding = mysqli_connect($servernaam, $gebruikersnaam, $wachtwoord, $database);
 echo "<h2>RESULTAAT</h2>";
-$sql = "SELECT * FROM artiest,titel,notering WHERE artiest.id=titel.artiest_id AND notering.lied_id=titel.id AND notering.jaar=2014 AND artiest='Nirvana' ORDER BY positie ASC";
-$records = mysqli_query($DBverbinding, $sql);
+$sql = "SELECT * FROM postcode WHERE straat= $straat ORDER BY positie ASC";
+$adress = mysqli_query($DBverbinding, $sql);
       
-while($record = mysqli_fetch_assoc($records)) {
-  echo "<b>".$record["titel"]."</b> stond in 2014 op positie ".$record['positie'].".<br>";
+while($adress = mysqli_fetch_assoc($adress)) {
+  echo "<b>".$adress["straat"].".<br>";
 }
 mysqli_close($DBverbinding);  
 
