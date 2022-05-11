@@ -18,6 +18,9 @@ function dobbelsteen() {
 for ($n=0; $n<20; $n++) {
   $frequentie[dobbelsteen()]++;  
 }
+function hoogte_bereken(){
+
+}
 
 echo '<h2>Staafdiagram frequentie</h2>';
 for ($o=1; $o<=6; $o++) {
